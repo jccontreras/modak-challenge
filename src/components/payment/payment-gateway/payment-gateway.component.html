@@ -1,1 +1,42 @@
-<p>payment-gateway works!</p>
+<div fxLayout="column wrap" fxFlexAlign="center center">
+    <mat-card class="card">
+        <mat-card-content>
+            <mat-stepper id="steeper" orientation="vertical" [linear]="isLinear" #paymentStepper>
+                <mat-step [stepControl]="firstFormGroup" style="color: brown;">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Personal Information</ng-template>
+                        <mat-form-field>
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Address</ng-template>
+                        <mat-form-field>
+                            <mat-label>Address</mat-label>
+                            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                                required>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Payment</ng-template>
+                    <p>You are now done.</p>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="paymentStepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </mat-card-content>
+    </mat-card>
+</div>
