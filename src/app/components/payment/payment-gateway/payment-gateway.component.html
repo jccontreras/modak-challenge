@@ -1,32 +1,30 @@
-<div fxLayout="column wrap" fxFlexAlign="center center">
-    <mat-card class="card">
+<div class="container" fxLayout="column" fxLayoutAlign.gt-lg="space-around strech">
+    <mat-card class="container__card">
         <mat-card-content>
-            <mat-stepper id="steeper" orientation="vertical" [linear]="isLinear" #paymentStepper>
-                <mat-step [stepControl]="firstFormGroup" style="color: brown;">
-                    <form [formGroup]="firstFormGroup">
-                        <ng-template matStepLabel>Personal Information</ng-template>
-                        <mat-form-field>
-                            <mat-label>Date of Birth</mat-label>
-                            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                        </mat-form-field>
-                        <div>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
+            <mat-stepper class="container__card__steeper" id="steeper" orientation="vertical" [linear]="isLinear"
+                #paymentStepper>
+                <mat-step [stepControl]="personalInfoForm">
+                    <ng-template matStepLabel>Personal Information</ng-template>
+                    <app-personal-information [personalInfoForm]="personalInfoForm" fxLayout="column"
+                        fxLayoutAlign="space-around strech" />
+                    <div fxLayout="column" fxLayoutAlign="space-around strech">
+                        <button mat-fab extended class="container__card__steeper__button" matStepperNext
+                            (click)="print()">Next</button>
+                    </div>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                        <ng-template matStepLabel>Address</ng-template>
-                        <mat-form-field>
-                            <mat-label>Address</mat-label>
-                            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                                required>
-                        </mat-form-field>
-                        <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
+                        <ng-template matStepLabel>Contact Information</ng-template>
+                        <app-contact-information [contactInfoForm]="contactInfoForm"/>
+                        <div fxLayout="row" fxLayoutAlign="space-around center">
+                            <div fxLayout="column" fxLayoutAlign="space-around strech">
+                                <button mat-fab extended class="container__card__steeper__button--back"
+                                    matStepperPrevious>Back</button>
+                            </div>
+                            <div fxLayout="column" fxLayoutAlign="space-around strech">
+                                <button mat-fab extended class="container__card__steeper__button"
+                                    matStepperNext (click)="print()">Next</button>
+                            </div>
                         </div>
-                    </form>
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Payment</ng-template>

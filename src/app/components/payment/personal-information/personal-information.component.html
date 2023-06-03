@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="space-around strech">
+    <form [formGroup]="personalInfoForm">
+        <div fxLayout="column" fxLayoutAlign="space-around strech">
+            <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="birthPicker" formControlName="birth">
+                <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['required']">This field is required</mat-error>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-around strech">
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="one">Female</mat-option>
+                    <mat-option value="two">Male</mat-option>
+                </mat-select>
+                <mat-error *ngIf="personalInfoForm.controls['gender'].errors?.['required']">This field is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-around strech">
+            <mat-form-field appearance="outline">
+                <mat-label>ID Number</mat-label>
+                <input matInput formControlName="idNumber" maxlength="15">
+                <mat-error *ngIf="personalInfoForm.controls['idNumber'].errors?.['required']">This field is required</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

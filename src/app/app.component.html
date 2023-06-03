@@ -1,4 +1,4 @@
-<div fxLayout="column">
+<div fxLayout="column" fxFlexFill>
   <mat-toolbar class="toolbar">
     <img class="toolbar__img"
       alt="Angular Logo" src="../assets/image/modak_logo.png" />
@@ -17,9 +17,9 @@
       </mat-menu>
   </mat-toolbar>
 
-  <div class="content" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column wrap" fxFlex>
     <app-payment-gateway/>
   </div>
-</div>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>
