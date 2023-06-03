@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder,Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatStep } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-payment-gateway',
   templateUrl: './payment-gateway.component.html',
   styleUrls: ['./payment-gateway.component.sass']
 })
-export class PaymentGatewayComponent implements OnInit {
+export class PaymentGatewayComponent implements OnInit{
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -20,7 +19,7 @@ export class PaymentGatewayComponent implements OnInit {
 
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder, public breakpointObserver: BreakpointObserver) {}
+  constructor(private _formBuilder: FormBuilder, public breakpointObserver: BreakpointObserver){}
 
   ngOnInit(): void {
     this.breakpointObserver
