@@ -29,7 +29,7 @@ export class PaymentGatewayComponent{
 
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
     personalInfoForm: this._formBuilder.group({
-      birth: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[012])\/\d{4}\/(0[1-9]|[12][0-9]|3[01])$/)]],
+      birth: ['', [Validators.required, Validators.pattern("^(0[1-9]|1[0-2])\/?(0[1-9]|[12][0-9]|3[01])\/?([0-9]{4})$")]],
       gender: ['', Validators.required],
       idNumber: ['', Validators.required]
     }),
@@ -41,7 +41,7 @@ export class PaymentGatewayComponent{
     paymentInfoForm: this._formBuilder.group({
       creditCardNumber: ['', [Validators.required, Validators.minLength(16), Validators.pattern('[0-9]*')]],
       cvc: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[0-9]*')]],
-      expiryDate: ['', [Validators.required, Validators.minLength(4)]],
+      expiryDate: ['', [Validators.required, Validators.pattern("^(0[1-9]|1[0-2])\/?([0-9]{2})$")]],
     })
   });
 

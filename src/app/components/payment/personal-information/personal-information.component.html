@@ -2,16 +2,15 @@
     <div fxLayout="column" fxLayoutAlign="space-around strech">
         <mat-form-field appearance="outline">
             <mat-label> {{ 'personalInformation.dateOfBirth' | translate }} </mat-label>
-            <input matInput [matDatepicker]="birthPicker" formControlName="birth" maxlength="10">
+            <input matInput formControlName="birth" maxlength="10" mask="00/00/0000"
+                placeholder="{{ 'hint.formatdate_MM_DD_YYYY' | translate }}">
+            <mat-hint> {{ 'hint.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['pattern']">
-                hola corola
+                {{ 'error.invalidBirthDate' | translate }}
             </mat-error>
-            <mat-hint> {{ 'hints.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
-            <mat-datepicker #birthPicker></mat-datepicker>
         </mat-form-field>
     </div>
 

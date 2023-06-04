@@ -11,9 +11,15 @@ export class PaymentInformationComponent implements OnChanges{
   @Input()
   public paymentInfoForm!: UntypedFormGroup;
 
-  cvcHide = true;
+  public cvcHide = true;
+  public minDate: Date;
 
   ngOnChanges(changes: SimpleChanges): void {
     this.paymentInfoForm = changes['paymentInfoForm'].currentValue;
+  }
+
+  constructor() {
+    const currentDate = new Date();
+    this.minDate = new Date(currentDate);
   }
 }

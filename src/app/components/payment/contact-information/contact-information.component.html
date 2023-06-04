@@ -27,7 +27,7 @@
             <mat-label> {{ 'contactInformation.cellPhone' | translate }} </mat-label>
             <input matInput formControlName="cellphone" maxlength="18" mask="(+00) 000 000 0000"
                 placeholder="(+01) 123 456 7890">
-            <mat-hint> {{ 'hints.cellPhoneFormat' | translate }} </mat-hint>
+            <mat-hint> {{ 'hint.cellPhoneFormat' | translate }} </mat-hint>
             <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>

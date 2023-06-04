@@ -24,8 +24,9 @@
         "cvc": "CVC",
         "expiryDate": "Expiry Date"
     },
-    "hints": {
+    "hint": {
         "formatdate_MM_DD_YYYY": "MM/DD/YYYY",
+        "formatdate_MM_YY": "MM/YY",
         "cellPhoneFormat": "number format: (+01) 123 456 7890"
     },
     "error": {
@@ -33,7 +34,9 @@
         "invalidEmail": "Enter a valid email please",
         "invalidCellPhone": "Enter a valid number with the country indicator please",
         "invalidCreditCardNumber": "Enter a valid credit card number please",
-        "invalidCVC": "Enter a valid cvc please"
+        "invalidCVC": "Enter a valid cvc please",
+        "invalidExpiryDate": "Enter a valid expiry date please ('MM/YY')",
+        "invalidBirthDate": "Enter a valid birth date please ('MM/DD/YYYY')"
     },
     "language": {
         "english": "English",

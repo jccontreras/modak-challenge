@@ -24,8 +24,9 @@
         "cvc": "CVC",
         "expiryDate": "Fecha de Vencimiento"
     },
-    "hints": {
+    "hint": {
         "formatdate_MM_DD_YYYY": "MM/DD/YYYY",
+        "formatdate_MM_YY": "MM/YY",
         "cellPhoneFormat": "formato del número: (+01) 123 456 7890"
     },
     "error": {
@@ -33,7 +34,9 @@
         "invalidEmail": "Ingrese un email válido por favor",
         "invalidCellPhone": "Ingerese un número válido con el indicador del país por favor",
         "invalidCreditCardNumber": "Ingrese un número de tarjeta de creito válido por favor",
-        "invalidCVC": "Ingrese un CVC válido por favor"
+        "invalidCVC": "Ingrese un CVC válido por favor",
+        "invalidExpiryDate": "Ingrese una fecha de vencimiento válida por favor ('MM/YY')",
+        "invalidBirthDate": "Ingrese una fecha de nacimiento válida por favor ('MM/DD/YYYY')"
     },
     "language": {
         "english": "Inglés",
