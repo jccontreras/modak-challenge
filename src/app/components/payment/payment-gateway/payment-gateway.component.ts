@@ -26,7 +26,7 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
 
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
     personalInfoForm: this._formBuilder.group({
-      birth: ['', [Validators.required, Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)]],
+      birth: ['', [Validators.required]],
       gender: ['', Validators.required],
       idNumber: ['', Validators.required]
     }),
@@ -57,9 +57,13 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
   isLinear = false;
   steeperOrientation = 'horizontal';
 
+
   ngAfterContentInit(): void {
-    let a = this.paymentStepper?._steps.length;
-    console.log(a, 'steps')
+    //let a = this.paymentStepper?._steps.length;
+    //console.log(a, 'steps')
+
+    let b = document.getElementById('paymentStepper');
+    console.log(b, 'b')
   }
 
   ngOnInit(): void {
@@ -67,10 +71,19 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
       .observe(['(min-width: 600px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          this.paymentStepper.orientation = 'horizontal';
+          //this.paymentStepper.orientation = 'horizontal';
+          let b = document.getElementById('paymentStepper');
+          console.log(b, 'before greate')
+          b?.setAttribute('orientation', 'horizontal');
+          console.log(b, 'after greate')
           console.log('Viewport width is 600px or greater!');
         } else {
-          this.paymentStepper.orientation = 'vertical';
+          //this.paymentStepper.orientation = 'vertical';
+          let b = document.getElementById('paymentStepper');
+          console.log(b, 'before less')
+          b?.setAttribute('orientation', 'vertical');
+          b?.setAttributeNS('orientation', 'orientation', 'vertical');
+          console.log(b, 'After less')
           console.log('Viewport width is less than 600px!');
         }
       });
