@@ -4,34 +4,52 @@
             <mat-stepper class="container__card__steeper" id="steeper" orientation="vertical" [linear]="isLinear"
                 #paymentStepper>
                 <mat-step [stepControl]="personalInfoForm">
-                    <ng-template matStepLabel>Personal Information</ng-template>
+                    <ng-template matStepLabel>{{ 'personalInformation.title' | translate}}</ng-template>
                     <app-personal-information [personalInfoForm]="personalInfoForm" fxLayout="column"
                         fxLayoutAlign="space-around strech" />
-                    <div fxLayout="column" fxLayoutAlign="space-around strech">
+                    <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex>
                         <button mat-fab extended class="container__card__steeper__button" matStepperNext
-                            (click)="print()">Next</button>
+                            (click)="print()">
+                            <mat-icon fontIcon="navigate_next" /> {{ 'buttons.next' | translate }} </button>
+
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                        <ng-template matStepLabel>Contact Information</ng-template>
-                        <app-contact-information [contactInfoForm]="contactInfoForm"/>
-                        <div fxLayout="row" fxLayoutAlign="space-around center">
-                            <div fxLayout="column" fxLayoutAlign="space-around strech">
-                                <button mat-fab extended class="container__card__steeper__button--back"
-                                    matStepperPrevious>Back</button>
-                            </div>
-                            <div fxLayout="column" fxLayoutAlign="space-around strech">
-                                <button mat-fab extended class="container__card__steeper__button"
-                                    matStepperNext (click)="print()">Next</button>
-                            </div>
+                <mat-step [stepControl]="contactInfoForm">
+                    <ng-template matStepLabel> {{ 'contactInformation.title' | translate }}</ng-template>
+                    <app-contact-information [contactInfoForm]="contactInfoForm" />
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                        <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
+                            <button mat-fab extended class="container__card__steeper__button--back" matStepperPrevious>
+                                <mat-icon fontIcon="navigate_before" /> 
+                                {{ 'buttons.back' | translate }}
+                            </button>
                         </div>
+                        <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
+                            <button mat-fab extended class="container__card__steeper__button" matStepperNext
+                                (click)="print()">
+                                <mat-icon fontIcon="navigate_next" style="float: right;" />
+                                {{ 'buttons.next' | translate }} 
+                            </button>
+                        </div>
+                    </div>
                 </mat-step>
-                <mat-step>
-                    <ng-template matStepLabel>Payment</ng-template>
-                    <p>You are now done.</p>
-                    <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="paymentStepper.reset()">Reset</button>
+                <mat-step [stepControl]="paymentInfoForm">
+                    <ng-template matStepLabel>{{ 'paymentInformation.title' | translate }}</ng-template>
+                    <app-payment-information [paymentInfoForm]="paymentInfoForm" />
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                        <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
+                            <button mat-fab extended class="container__card__steeper__button--back" matStepperPrevious>
+                                <mat-icon fontIcon="navigate_before" /> 
+                                {{ 'buttons.back' | translate }}
+                            </button>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
+                            <button mat-fab extended class="container__card__steeper__button"
+                                (click)="paymentStepper.reset()">
+                                <mat-icon fontIcon="send" />
+                                {{ 'buttons.send' | translate }}
+                            </button>
+                        </div>
                     </div>
                 </mat-step>
             </mat-stepper>

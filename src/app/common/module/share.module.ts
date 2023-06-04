@@ -13,6 +13,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -30,7 +32,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatRippleModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ],
   exports: [
     MatToolbarModule,
@@ -45,7 +49,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatRippleModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ]
 })
 export class ShareModule { }

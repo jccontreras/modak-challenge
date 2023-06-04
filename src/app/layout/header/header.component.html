@@ -1,0 +1,35 @@
+<mat-toolbar class="toolbar">
+    <img class="toolbar__img" alt="Angular Logo" src="../assets/image/modak_logo.png" />
+    <span class="toolbar__name">modak</span>
+    <span class="toolbar__space"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+        <mat-icon fontIcon="language" />
+    </button>
+    <mat-menu #languageMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="changeLanguage('en')">
+            {{ 'language.english' | translate }}
+        </button>
+        <button mat-menu-item (click)="changeLanguage('es')">
+            {{ 'language.spanish' | translate }}
+        </button>
+    </mat-menu>
+
+    <mat-chip class="toolbar__chip">
+        {{ language }}
+    </mat-chip>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon fontIcon="menu" />
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>
+            <mat-icon fontIcon="settings" />
+            {{ 'menu.settings' | translate }}
+        </button>
+        <button mat-menu-item>
+            <mat-icon fontIcon="logout" />
+            {{ 'menu.logout' | translate }}
+        </button>
+    </mat-menu>
+</mat-toolbar>

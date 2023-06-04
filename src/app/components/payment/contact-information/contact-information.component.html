@@ -1,30 +1,39 @@
-<div fxLayout="column" fxLayoutAlign="space-around strech">
-    <form [formGroup]="contactInfoForm">
-        <div fxLayout="column" fxLayoutAlign="space-around strech">
-            <mat-form-field appearance="outline">
-                <mat-label>Address</mat-label>
-                <input matInput formControlName="address" maxlength="100">
-                <mat-error *ngIf="contactInfoForm.controls['address'].errors?.['required']">This field is required</mat-error>
-            </mat-form-field>
-        </div>
+<form [formGroup]="contactInfoForm">
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label>  {{ 'contactInformation.address' | translate }} </mat-label>
+            <input matInput formControlName="address" maxlength="100">
+            <mat-error *ngIf="contactInfoForm.controls['address'].errors?.['required']">
+                {{ 'errors.fieldRequired' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
 
-        <div fxLayout="column" fxLayoutAlign="space-around strech">
-            <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" placeholder="example@email.com" maxlength="50">
-                <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['required']">This field is required</mat-error>
-                <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['email']">Enter a valid email</mat-error>
-            </mat-form-field>
-        </div>
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label> {{ 'contactInformation.email' | translate }} </mat-label>
+            <input matInput formControlName="email" placeholder="example@email.com" maxlength="50">
+            <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['required']">
+                {{ 'errors.fieldRequired' | translate }}
+            </mat-error>
+            <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['email']">
+                {{ 'errors.invalidEmail' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
 
-        <div fxLayout="column" fxLayoutAlign="space-around strech">
-            <mat-form-field appearance="outline">
-                <mat-label>Cell Phone</mat-label>
-                <input matInput formControlName="cellphone" maxlength="18" mask="(+00) 000 000 0000" placeholder="(+1) 123 456 7890">
-                <mat-hint>number format: (+1) 123 456 7890</mat-hint>
-                <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['required']">This field is required</mat-error>
-                <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask']">Enter a valid number with the country indicator</mat-error>
-            </mat-form-field>
-        </div>
-    </form>
-</div>
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label> {{ 'contactInformation.cellPhone' | translate }} </mat-label>
+            <input matInput formControlName="cellphone" maxlength="18" mask="(+00) 000 000 0000"
+                placeholder="(+01) 123 456 7890">
+            <mat-hint> {{ 'hints.cellPhoneFormat' | translate }} </mat-hint>
+            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['required']">
+                {{ 'errors.fieldRequired' | translate }}
+            </mat-error>
+            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask']">
+                {{ 'errors.invalidCellPhone' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>

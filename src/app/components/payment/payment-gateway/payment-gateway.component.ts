@@ -22,6 +22,11 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cellphone: ['', Validators.required],
+    }),
+    paymentInfoForm: this._formBuilder.group({
+      creditCardNumber: ['', [Validators.required, Validators.minLength(16)]],
+      cvc: ['', [Validators.required, Validators.minLength(3)]],
+      cellphone: ['', Validators.required],
     })
   });
 
@@ -33,16 +38,14 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
     return this.paymentGatewayForm.get('contactInfoForm') as UntypedFormGroup;
   }
 
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
+  get paymentInfoForm() {
+    return this.paymentGatewayForm.get('paymentInfoForm') as UntypedFormGroup;
+  }
 
   isLinear = false;
-  steeperOrientation = 'horizontal;'
+  steeperOrientation = 'horizontal';
 
   print() {
-    console.log(this.personalInfoForm.value, 'personal form')
-    console.log(this.contactInfoForm.value, 'contact form')
     console.log(this.paymentGatewayForm.value, 'main form')
   }
 
@@ -50,6 +53,7 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
     private _formBuilder: FormBuilder,
     public breakpointObserver: BreakpointObserver
     ){
+      //this.paymentStepper = new MatStepper();
     }
 
   ngAfterContentInit(): void {

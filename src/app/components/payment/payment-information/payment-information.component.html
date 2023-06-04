@@ -1,0 +1,32 @@
+<form [formGroup]="paymentInfoForm">
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label> {{ 'paymentInformation.creditCardNumber' | translate }} </mat-label>
+            <input matInput formControlName="creditCardNumber" maxlength="19" mask="0000 0000 0000 0000"
+                placeholder="xxxx xxxx xxxx xxxx">
+            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['required']">
+                {{ 'errors.fieldRequired' | translate }}
+            </mat-error>
+            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['minlength']">
+                {{ 'errors.invalidCreditCardNumber' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label> {{ 'paymentInformation.cvc' | translate }} </mat-label>
+            <input matInput [type]="cvcHide ? 'password' : 'text'" maxlength="3" formControlName="cvc">
+            <button mat-icon-button matSuffix (click)="cvcHide = !cvcHide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="cvcHide">
+                <mat-icon>{{ cvcHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['required']">
+                {{ 'errors.fieldRequired' | translate }}
+            </mat-error>
+            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['minlength']">
+                {{ 'errors.invalidCVC' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>

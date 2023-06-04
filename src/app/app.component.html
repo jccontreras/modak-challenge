@@ -1,25 +1,7 @@
 <div fxLayout="column" fxFlexFill>
-  <mat-toolbar class="toolbar">
-    <img class="toolbar__img"
-      alt="Angular Logo" src="../assets/image/modak_logo.png" />
-    <span class="toolbar__name">modak</span>
-      <span class="toolbar__space"></span>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon> Settings
-        </button>
-        <button mat-menu-item>
-          <mat-icon>logout</mat-icon> Log out
-        </button>
-      </mat-menu>
-  </mat-toolbar>
-
+  <app-header/>
   <div fxLayout="column wrap" fxFlex>
     <app-payment-gateway/>
   </div>
-
   <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,45 @@
+{
+    "buttons": {
+        "next": "Siguiente",
+        "back": "Atras",
+        "send": "Enviar"
+    },
+    "personalInformation": {
+        "title": "Información Personal",
+        "dateOfBirth": "Fecha de Nacimiento",
+        "gender": "Género",
+        "female": "Femenino",
+        "male": "Masculino",
+        "idNumber": "Número de ID"
+    },
+    "contactInformation": { 
+        "title": "Información de Contacto",
+        "address": "Dirección",
+        "email": "Email",
+        "cellPhone": "Celular"
+    },
+    "paymentInformation": {
+        "title": "Información de Pago",
+        "creditCardNumber": "Número de Tarjeta de Crédito",
+        "cvc": "CVC"
+    },
+    "hints": {
+        "formatdate_MM_DD_YYYY": "MM/DD/YYYY",
+        "cellPhoneFormat": "formato del número: (+01) 123 456 7890"
+    },
+    "errors": {
+        "fieldRequired": "Este campo es obligatorio",
+        "invalidEmail": "Ingrese un email válido por favor",
+        "invalidCellPhone": "Ingerese un número válido con el indicador del país por favor",
+        "invalidCreditCardNumber": "Ingrese un número de tarjeta de creito válido por favor",
+        "invalidCVC": "Ingrese un CVC válido por favor"
+    },
+    "language": {
+        "english": "Inglés",
+        "spanish": "Español"
+    },
+    "menu": {
+        "settings": "Preferencias",
+        "logout": "Cerrar Sesión"
+    }
+}
