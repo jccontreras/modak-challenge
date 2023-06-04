@@ -4,7 +4,7 @@
             <mat-label> {{ 'personalInformation.dateOfBirth' | translate }} </mat-label>
             <input matInput [matDatepicker]="birthPicker" formControlName="birth" maxlength="10">
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
             <mat-hint> {{ 'hints.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
@@ -20,7 +20,7 @@
                 <mat-option value="two"> {{ 'personalInformation.male' | translate }} </mat-option>
             </mat-select>
             <mat-error *ngIf="personalInfoForm.controls['gender'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
         </mat-form-field>
     </div>
@@ -30,7 +30,7 @@
             <mat-label> {{ 'personalInformation.idNumber' | translate }} </mat-label>
             <input matInput formControlName="idNumber" maxlength="15">
             <mat-error *ngIf="personalInfoForm.controls['idNumber'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
         </mat-form-field>
     </div>

@@ -1,5 +1,5 @@
 {
-    "buttons": {
+    "button": {
         "next": "Next",
         "back": "Back",
         "send": "Send"
@@ -21,13 +21,14 @@
     "paymentInformation": {
         "title": "Payment Information",
         "creditCardNumber": "Credit Card Number",
-        "cvc": "CVC"
+        "cvc": "CVC",
+        "expiryDate": "Expiry Date"
     },
     "hints": {
         "formatdate_MM_DD_YYYY": "MM/DD/YYYY",
         "cellPhoneFormat": "number format: (+01) 123 456 7890"
     },
-    "errors": {
+    "error": {
         "fieldRequired": "This field is required",
         "invalidEmail": "Enter a valid email please",
         "invalidCellPhone": "Enter a valid number with the country indicator please",

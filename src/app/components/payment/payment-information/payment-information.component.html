@@ -5,10 +5,10 @@
             <input matInput formControlName="creditCardNumber" maxlength="19" mask="0000 0000 0000 0000"
                 placeholder="xxxx xxxx xxxx xxxx">
             <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['minlength']">
-                {{ 'errors.invalidCreditCardNumber' | translate }}
+            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['minlength'] || paymentInfoForm.controls['creditCardNumber'].errors?.['pattern']">
+                {{ 'error.invalidCreditCardNumber' | translate }}
             </mat-error>
         </mat-form-field>
     </div>
@@ -22,11 +22,24 @@
                 <mat-icon>{{ cvcHide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['minlength']">
-                {{ 'errors.invalidCVC' | translate }}
+            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['minlength'] || paymentInfoForm.controls['cvc'].errors?.['pattern']">
+                {{ 'error.invalidCVC' | translate }}
             </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around">
+        <mat-form-field appearance="outline">
+            <mat-label> {{ 'paymentInformation.expiryDate' | translate }} </mat-label>
+            <input matInput [matDatepicker]="birthPicker" formControlName="expiryDate" maxlength="10">
+            <mat-error *ngIf="paymentInfoForm.controls['expiryDate'].errors?.['required']">
+                {{ 'error.fieldRequired' | translate }}
+            </mat-error>
+            <mat-hint> {{ 'hints.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
+            <mat-datepicker #birthPicker></mat-datepicker>
         </mat-form-field>
     </div>
 </form>

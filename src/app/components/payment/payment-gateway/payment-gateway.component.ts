@@ -21,12 +21,12 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
     contactInfoForm: this._formBuilder.group({
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      cellphone: ['', Validators.required],
+      cellphone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     }),
     paymentInfoForm: this._formBuilder.group({
-      creditCardNumber: ['', [Validators.required, Validators.minLength(16)]],
-      cvc: ['', [Validators.required, Validators.minLength(3)]],
-      cellphone: ['', Validators.required],
+      creditCardNumber: ['', [Validators.required, Validators.minLength(16), Validators.pattern('[0-9]*')]],
+      cvc: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[0-9]*')]],
+      expiryDate: ['', [Validators.required, Validators.minLength(4)]],
     })
   });
 

@@ -4,7 +4,7 @@
             <mat-label>  {{ 'contactInformation.address' | translate }} </mat-label>
             <input matInput formControlName="address" maxlength="100">
             <mat-error *ngIf="contactInfoForm.controls['address'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
         </mat-form-field>
     </div>
@@ -14,10 +14,10 @@
             <mat-label> {{ 'contactInformation.email' | translate }} </mat-label>
             <input matInput formControlName="email" placeholder="example@email.com" maxlength="50">
             <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
             <mat-error *ngIf="contactInfoForm.controls['email'].errors?.['email']">
-                {{ 'errors.invalidEmail' | translate }}
+                {{ 'error.invalidEmail' | translate }}
             </mat-error>
         </mat-form-field>
     </div>
@@ -29,10 +29,10 @@
                 placeholder="(+01) 123 456 7890">
             <mat-hint> {{ 'hints.cellPhoneFormat' | translate }} </mat-hint>
             <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['required']">
-                {{ 'errors.fieldRequired' | translate }}
+                {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask']">
-                {{ 'errors.invalidCellPhone' | translate }}
+            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask'] || contactInfoForm.controls['cellphone'].errors?.['pattern']">
+                {{ 'error.invalidCellPhone' | translate }}
             </mat-error>
         </mat-form-field>
     </div>

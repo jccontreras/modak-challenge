@@ -1,5 +1,5 @@
 {
-    "buttons": {
+    "button": {
         "next": "Siguiente",
         "back": "Atras",
         "send": "Enviar"
@@ -21,13 +21,14 @@
     "paymentInformation": {
         "title": "Información de Pago",
         "creditCardNumber": "Número de Tarjeta de Crédito",
-        "cvc": "CVC"
+        "cvc": "CVC",
+        "expiryDate": "Fecha de Vencimiento"
     },
     "hints": {
         "formatdate_MM_DD_YYYY": "MM/DD/YYYY",
         "cellPhoneFormat": "formato del número: (+01) 123 456 7890"
     },
-    "errors": {
+    "error": {
         "fieldRequired": "Este campo es obligatorio",
         "invalidEmail": "Ingrese un email válido por favor",
         "invalidCellPhone": "Ingerese un número válido con el indicador del país por favor",
