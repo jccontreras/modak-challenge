@@ -1,7 +1,7 @@
 .container
     align-items: center
     padding: 2em
-    
+
     &__card
         background-color: #edf5f3
         margin-top: 2rem
@@ -31,3 +31,33 @@
                 &--back
                     background-color: dimgray
                     margin-top: 2em
+
+                &--next
+                    background-color: #006a61
+                    display: inline-block
+                    border-radius: 2em
+                    border: none
+                    color: #FFFFFF
+                    text-align: center
+                    padding: 14px
+                    transition: all 0.5s
+                    cursor: pointer
+                    margin-top: 2em
+
+                    &:hover
+                        -webkit-box-shadow: 6px 5px 10px #666666
+                        -moz-box-shadow: 6px 5px 10px #666666
+                        box-shadow: 6px 5px 10px #666666
+                        cursor: pointer
+                        background-color: #01756c
+
+                &__span
+                    display: inline-block
+                    position: relative
+                    margin-right: 15px
+                    margin-top: 4px
+
+                &__icon
+                    display: inline-block
+                    position: fixed
+                    margin-bottom: 2px

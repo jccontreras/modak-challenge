@@ -1,19 +1,21 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
-    <div class="container" fxLayout="column" fxLayoutAlign="space-around" fxFlex.gt-lg="60" fxFlex.gt-md="60" fxFlex.gt-sm="60">
+    <div class="container" fxLayout="column" fxLayoutAlign="space-around" fxFlex.gt-lg="60" fxFlex.gt-md="60"
+        fxFlex.gt-sm="60">
         <mat-card class="container__card">
             <mat-card-content>
                 <form [formGroup]="paymentGatewayForm" (ngSubmit)="sendPayment()">
-                    <mat-stepper class="container__card__steeper" id="paymentStepper" [orientation]="(stepperOrientation | async)!"
-                        [linear]="true" #paymentStepper>
+                    <mat-stepper class="container__card__steeper" id="paymentStepper"
+                        [orientation]="(stepperOrientation | async)!" [linear]="false" #paymentStepper>
                         <mat-step [stepControl]="personalInfoForm">
                             <ng-template matStepLabel>{{ 'personalInformation.title' | translate}}</ng-template>
                             <app-personal-information [personalInfoForm]="personalInfoForm" fxLayout="column"
                                 fxLayoutAlign="space-around strech" />
                             <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex>
-                                <button mat-fab extended class="container__card__steeper__button" matStepperNext
-                                    type="button">
-                                    <mat-icon fontIcon="navigate_next" />
-                                    {{ 'button.next' | translate }}
+                                <button class="container__card__steeper__button--next" matStepperNext type="button">
+                                    <span class="container__card__steeper__button__span">
+                                        {{ 'button.next' | translate }}
+                                    </span>
+                                    <mat-icon fontIcon="navigate_next" class="container__card__steeper__button__icon" />
                                 </button>
                             </div>
                         </mat-step>
@@ -29,10 +31,11 @@
                                     </button>
                                 </div>
                                 <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
-                                    <button mat-fab extended class="container__card__steeper__button" matStepperNext
-                                        type="button">
-                                        <mat-icon fontIcon="navigate_next" style="float: right;" />
-                                        {{ 'button.next' | translate }}
+                                    <button class="container__card__steeper__button--next" matStepperNext type="button">
+                                        <span class="container__card__steeper__button__span">
+                                            {{ 'button.next' | translate }}
+                                        </span>
+                                        <mat-icon fontIcon="navigate_next" class="container__card__steeper__button__icon" />
                                     </button>
                                 </div>
                             </div>
@@ -50,7 +53,8 @@
                                 </div>
                                 <div fxLayout="column" fxLayoutAlign="space-around strech" fxFlex="48">
                                     <button mat-fab extended class="container__card__steeper__button"
-                                        (click)="paymentStepper.reset()" type="submit" [disabled]="paymentGatewayForm.invalid">
+                                        (click)="paymentStepper.reset()" type="submit"
+                                        [disabled]="paymentGatewayForm.invalid">
                                         <mat-icon fontIcon="send" />
                                         {{ 'button.send' | translate }}
                                     </button>

@@ -29,7 +29,7 @@ export class PaymentGatewayComponent{
 
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
     personalInfoForm: this._formBuilder.group({
-      birth: ['', [Validators.required]],
+      birth: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[012])\/\d{4}\/(0[1-9]|[12][0-9]|3[01])$/)]],
       gender: ['', Validators.required],
       idNumber: ['', Validators.required]
     }),
