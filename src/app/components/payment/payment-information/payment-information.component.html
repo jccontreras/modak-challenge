@@ -7,7 +7,8 @@
             <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['minlength'] || paymentInfoForm.controls['creditCardNumber'].errors?.['pattern']">
+            <mat-error *ngIf="paymentInfoForm.controls['creditCardNumber'].errors?.['minlength']
+                || paymentInfoForm.controls['creditCardNumber'].errors?.['pattern']">
                 {{ 'error.invalidCreditCardNumber' | translate }}
             </mat-error>
         </mat-form-field>
@@ -24,7 +25,8 @@
             <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['minlength'] || paymentInfoForm.controls['cvc'].errors?.['pattern']">
+            <mat-error *ngIf="paymentInfoForm.controls['cvc'].errors?.['minlength']
+                || paymentInfoForm.controls['cvc'].errors?.['pattern']">
                 {{ 'error.invalidCVC' | translate }}
             </mat-error>
         </mat-form-field>

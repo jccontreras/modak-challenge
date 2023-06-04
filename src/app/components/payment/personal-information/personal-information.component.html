@@ -6,9 +6,6 @@
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['pattern']">
-                hola corola
-            </mat-error>
             <mat-hint> {{ 'hints.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="birthPicker"></mat-datepicker-toggle>
             <mat-datepicker #birthPicker></mat-datepicker>

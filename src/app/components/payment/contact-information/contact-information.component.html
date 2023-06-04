@@ -31,7 +31,8 @@
             <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['required']">
                 {{ 'error.fieldRequired' | translate }}
             </mat-error>
-            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask'] || contactInfoForm.controls['cellphone'].errors?.['pattern']">
+            <mat-error *ngIf="contactInfoForm.controls['cellphone'].errors?.['mask']
+                || contactInfoForm.controls['cellphone'].errors?.['pattern']">
                 {{ 'error.invalidCellPhone' | translate }}
             </mat-error>
         </mat-form-field>

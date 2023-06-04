@@ -1,19 +1,20 @@
-import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatStepper } from '@angular/material/stepper';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperOrientation } from '@angular/material/stepper';
 import { PaymentGatewayService } from '../service/payment-gateway.service';
-import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable, map } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-payment-gateway',
   templateUrl: './payment-gateway.component.html',
   styleUrls: ['./payment-gateway.component.sass']
 })
-export class PaymentGatewayComponent implements OnInit, AfterContentInit{
+export class PaymentGatewayComponent{
 
-  @ViewChild('steeper') paymentStepper!: MatStepper;
+  stepperOrientation: Observable<StepperOrientation>;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -21,7 +22,9 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
     private _paymentGatewayService: PaymentGatewayService,
     private _translate: TranslateService
     ){
-      //this.paymentStepper = new MatStepper();
+      this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
     }
 
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
@@ -54,48 +57,13 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
     return this.paymentGatewayForm.get('paymentInfoForm') as UntypedFormGroup;
   }
 
-  isLinear = false;
-  steeperOrientation = 'horizontal';
-
-
-  ngAfterContentInit(): void {
-    //let a = this.paymentStepper?._steps.length;
-    //console.log(a, 'steps')
-
-    let b = document.getElementById('paymentStepper');
-    console.log(b, 'b')
-  }
-
-  ngOnInit(): void {
-    this.breakpointObserver
-      .observe(['(min-width: 600px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          //this.paymentStepper.orientation = 'horizontal';
-          let b = document.getElementById('paymentStepper');
-          console.log(b, 'before greate')
-          b?.setAttribute('orientation', 'horizontal');
-          console.log(b, 'after greate')
-          console.log('Viewport width is 600px or greater!');
-        } else {
-          //this.paymentStepper.orientation = 'vertical';
-          let b = document.getElementById('paymentStepper');
-          console.log(b, 'before less')
-          b?.setAttribute('orientation', 'vertical');
-          b?.setAttributeNS('orientation', 'orientation', 'vertical');
-          console.log(b, 'After less')
-          console.log('Viewport width is less than 600px!');
-        }
-      });
-  }
-
   //DUMMY PAYMENT SEND AND RESPONSE
   sendPayment() {
     if (this._paymentGatewayService.sendPayment(this.paymentGatewayForm.value)) {
       Swal.fire(
         this._translate.instant('message.success.title'),
         this._translate.instant('message.success.message'),
-        'success'
+        'success',
       );
     } else {
       Swal.fire(
