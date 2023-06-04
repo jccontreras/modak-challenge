@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { StepperOrientation } from '@angular/material/stepper';
+import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { PaymentGatewayService } from '../service/payment-gateway.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
@@ -58,13 +58,14 @@ export class PaymentGatewayComponent{
   }
 
   //DUMMY PAYMENT SEND AND RESPONSE
-  sendPayment() {
+  sendPayment(steeper: MatStepper) {
     if (this._paymentGatewayService.sendPayment(this.paymentGatewayForm.value)) {
       Swal.fire(
         this._translate.instant('message.success.title'),
         this._translate.instant('message.success.message'),
         'success',
       );
+      steeper.reset();
     } else {
       Swal.fire(
         this._translate.instant('message.error.title'),
