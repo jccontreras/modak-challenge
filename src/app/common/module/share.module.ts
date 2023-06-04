@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -34,7 +35,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatNativeDateModule,
     MatSelectModule,
     MatButtonToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ],
   exports: [
     MatToolbarModule,
@@ -51,7 +53,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatNativeDateModule,
     MatSelectModule,
     MatButtonToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ]
 })
 export class ShareModule { }

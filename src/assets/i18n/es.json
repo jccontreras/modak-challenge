@@ -41,5 +41,8 @@
     "menu": {
         "settings": "Preferencias",
         "logout": "Cerrar Sesión"
+    },
+    "tooltip": {
+        "changeLanguage": "Cambiar Lenguaje"
     }
 }

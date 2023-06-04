@@ -3,7 +3,8 @@
     <span class="toolbar__name">modak</span>
     <span class="toolbar__space"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu"
+        matTooltip="{{ 'tooltip.changeLanguage' | translate }}" matTooltipPosition="left">
         <mat-icon fontIcon="language" />
     </button>
     <mat-menu #languageMenu="matMenu" xPosition="before">
@@ -15,7 +16,7 @@
         </button>
     </mat-menu>
 
-    <mat-chip class="toolbar__chip">
+    <mat-chip>
         {{ language }}
     </mat-chip>
 

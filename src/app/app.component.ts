@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
-import { LocalStorageService } from './common/service/local-storage.service';
+import { LocalStorageService } from './common/service/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-root',

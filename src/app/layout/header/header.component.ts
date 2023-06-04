@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
-import { LocalStorageService } from 'src/app/common/service/local-storage.service';
+import { LocalStorageService } from 'src/app/common/service/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-header',
