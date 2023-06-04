@@ -45,5 +45,15 @@
     },
     "tooltip": {
         "changeLanguage": "Cambiar Lenguaje"
+    },
+    "message": {
+        "success": {
+            "title": "Pago Exitoso!",
+            "message": "El pago fue enviado exitosamente"
+        },
+        "error": {
+            "title": "Opss...!",
+            "message": "Algo sucedió, por favor intente más tarde"
+        }
     }
 }

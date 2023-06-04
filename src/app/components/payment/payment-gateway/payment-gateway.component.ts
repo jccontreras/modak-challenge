@@ -2,6 +2,9 @@ import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { MatStepper } from '@angular/material/stepper';
+import { PaymentGatewayService } from '../service/payment-gateway.service';
+import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-payment-gateway',
@@ -12,9 +15,18 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
 
   @ViewChild('steeper') paymentStepper!: MatStepper;
 
+  constructor(
+    private _formBuilder: FormBuilder,
+    public breakpointObserver: BreakpointObserver,
+    private _paymentGatewayService: PaymentGatewayService,
+    private _translate: TranslateService
+    ){
+      //this.paymentStepper = new MatStepper();
+    }
+
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
     personalInfoForm: this._formBuilder.group({
-      birth: ['', Validators.required],
+      birth: ['', [Validators.required, Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)]],
       gender: ['', Validators.required],
       idNumber: ['', Validators.required]
     }),
@@ -45,17 +57,6 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
   isLinear = false;
   steeperOrientation = 'horizontal';
 
-  print() {
-    console.log(this.paymentGatewayForm.value, 'main form')
-  }
-
-  constructor(
-    private _formBuilder: FormBuilder,
-    public breakpointObserver: BreakpointObserver
-    ){
-      //this.paymentStepper = new MatStepper();
-    }
-
   ngAfterContentInit(): void {
     let a = this.paymentStepper?._steps.length;
     console.log(a, 'steps')
@@ -73,5 +74,22 @@ export class PaymentGatewayComponent implements OnInit, AfterContentInit{
           console.log('Viewport width is less than 600px!');
         }
       });
+  }
+
+  //DUMMY PAYMENT SEND AND RESPONSE
+  sendPayment() {
+    if (this._paymentGatewayService.sendPayment(this.paymentGatewayForm.value)) {
+      Swal.fire(
+        this._translate.instant('message.success.title'),
+        this._translate.instant('message.success.message'),
+        'success'
+      );
+    } else {
+      Swal.fire(
+        this._translate.instant('message.error.title'),
+        this._translate.instant('message.error.message'),
+        'error'
+      );
+    }
   }
 }
