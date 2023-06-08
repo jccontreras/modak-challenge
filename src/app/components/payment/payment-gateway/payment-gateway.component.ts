@@ -5,6 +5,7 @@ import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { PaymentGatewayService } from '../service/payment-gateway.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
+import { MaxDateValidator } from 'src/app/common/validator/dateValidator';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,7 +30,7 @@ export class PaymentGatewayComponent{
 
   paymentGatewayForm: UntypedFormGroup = this._formBuilder.group({
     personalInfoForm: this._formBuilder.group({
-      birth: ['', [Validators.required, Validators.pattern("^(0[1-9]|1[0-2])\/?(0[1-9]|[12][0-9]|3[01])\/?([0-9]{4})$")]],
+      birth: ['', [Validators.required, Validators.pattern("^(0[1-9]|1[0-2])\/?(0[1-9]|[12][0-9]|3[01])\/?([0-9]{4})$"), MaxDateValidator]],
       gender: ['', Validators.required],
       idNumber: ['', Validators.required]
     }),
@@ -45,6 +46,9 @@ export class PaymentGatewayComponent{
     })
   });
 
+  print() {
+    console.log(this.paymentGatewayForm.value, 'form')
+  }
   get personalInfoForm() {
     return this.paymentGatewayForm.get('personalInfoForm') as UntypedFormGroup;
   }

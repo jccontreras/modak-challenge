@@ -2,7 +2,7 @@
     <div fxLayout="column" fxLayoutAlign="space-around strech">
         <mat-form-field appearance="outline">
             <mat-label> {{ 'personalInformation.dateOfBirth' | translate }} </mat-label>
-            <input matInput formControlName="birth" maxlength="10" mask="00/00/0000"
+            <input matInput formControlName="birth" maxlength="10" mask="00/00/0000" [dropSpecialCharacters]="false"
                 placeholder="{{ 'hint.formatdate_MM_DD_YYYY' | translate }}">
             <mat-hint> {{ 'hint.formatdate_MM_DD_YYYY' | translate }} </mat-hint>
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['required']">
@@ -10,6 +10,9 @@
             </mat-error>
             <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['pattern']">
                 {{ 'error.invalidBirthDate' | translate }}
+            </mat-error>
+            <mat-error *ngIf="personalInfoForm.controls['birth'].errors?.['maxDate']">
+                {{ 'error.invalidMaxBirthDate' | translate }}
             </mat-error>
         </mat-form-field>
     </div>

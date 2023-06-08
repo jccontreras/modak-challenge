@@ -36,7 +36,8 @@
         "invalidCreditCardNumber": "Enter a valid credit card number please",
         "invalidCVC": "Enter a valid cvc please",
         "invalidExpiryDate": "Enter a valid expiry date please ('MM/YY')",
-        "invalidBirthDate": "Enter a valid birth date please ('MM/DD/YYYY')"
+        "invalidBirthDate": "Enter a valid birth date please ('MM/DD/YYYY')",
+        "invalidMaxBirthDate": "Date of birth can't be greater than the current date"
     },
     "language": {
         "english": "English",

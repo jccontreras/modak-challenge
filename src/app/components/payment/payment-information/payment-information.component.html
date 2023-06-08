@@ -35,7 +35,7 @@
     <div fxLayout="column" fxLayoutAlign="space-around">
         <mat-form-field appearance="outline">
             <mat-label> {{ 'paymentInformation.expiryDate' | translate }} </mat-label>
-            <input matInput formControlName="expiryDate" maxlength="5" mask="00/00"
+            <input matInput formControlName="expiryDate" maxlength="5" mask="00/00" [dropSpecialCharacters]="false"
                 placeholder="{{ 'hint.formatdate_MM_YY' | translate }}">
             <mat-hint> {{ 'hint.formatdate_MM_YY' | translate }} </mat-hint>
             <mat-error *ngIf="paymentInfoForm.controls['expiryDate'].errors?.['required']">

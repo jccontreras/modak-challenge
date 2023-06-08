@@ -36,7 +36,8 @@
         "invalidCreditCardNumber": "Ingrese un número de tarjeta de creito válido por favor",
         "invalidCVC": "Ingrese un CVC válido por favor",
         "invalidExpiryDate": "Ingrese una fecha de vencimiento válida por favor ('MM/YY')",
-        "invalidBirthDate": "Ingrese una fecha de nacimiento válida por favor ('MM/DD/YYYY')"
+        "invalidBirthDate": "Ingrese una fecha de nacimiento válida por favor ('MM/DD/YYYY')",
+        "invalidMaxBirthDate": "La fecha de nacimiento no puede ser mayor a la fecha actual"
     },
     "language": {
         "english": "Inglés",

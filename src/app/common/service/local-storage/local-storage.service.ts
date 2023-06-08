@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +6,6 @@ import { Subject } from 'rxjs';
 export class LocalStorageService {
 
   storage: Storage;
-  changes =  new Subject();
 
   constructor() { 
     this.storage = window.sessionStorage;
