@@ -46,9 +46,6 @@ export class PaymentGatewayComponent{
     })
   });
 
-  print() {
-    console.log(this.paymentGatewayForm.value, 'form')
-  }
   get personalInfoForm() {
     return this.paymentGatewayForm.get('personalInfoForm') as UntypedFormGroup;
   }
